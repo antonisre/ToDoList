@@ -1,0 +1,35 @@
+body {
+    background-image: linear-gradient(to right, green , yellow);
+
+    #container {
+        margin: 5em auto;
+        width: 40%;
+        display: grid;
+        align-items: center;
+        background: lightgray;
+
+        input {
+            height: 2em;
+            text-align: center;
+            width: 100%;
+        }
+    
+        h3 {
+            margin-bottom: 10px;
+            text-align: center
+        }
+    
+        .done_item {
+            text-decoration: line-through;
+            font-style: italic;
+            color: red;
+        }
+
+        li {
+            width: 30%;
+            padding: 5px;
+        }
+}
+}
+
+

@@ -1,6 +1,22 @@
 import * as React from 'react';
 
-function reducer(state, action) {
+interface ReducerAction {
+  type: string,
+  text?: string,
+  index?: number
+}
+interface ReducerState {
+ todos: ToDos[]
+}
+
+interface ToDos {
+  text: string,
+  completed: boolean,
+  index: number
+}
+
+function reducer(state: ReducerState, action: ReducerAction) {
+  console.log(state)
   switch(action.type) {
     case "add-todo":
       return { 
@@ -9,7 +25,7 @@ function reducer(state, action) {
     case "todo-done":
       return { 
         todos: state.todos.map((todo,index) =>
-          index == todo.index ? { ...todo, completed: !todo.completed} : todo
+          index == todo.index ? { ...todo, completed: !todo.completed } : todo
         )
       };
     default:
@@ -35,7 +51,7 @@ const ToDoList = () => {
     <ol>
   {todos.map((todo, index) => 
     <li onClick={ (e) => {
-      () => dispatch({type:"todo-done", index});
+      () => dispatch({ type:"todo-done", index });
       const target = e.target as HTMLTextAreaElement;
       target.classList.toggle('done_item');
 
